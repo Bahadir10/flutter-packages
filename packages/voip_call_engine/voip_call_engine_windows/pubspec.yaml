@@ -1,0 +1,28 @@
+name: voip_call_engine_windows
+description: Windows implementation of the voip_call_engine plugin using WASAPI audio endpoint enumeration and Windows VoIP call lifecycle management.
+version: 0.1.0
+repository: https://github.com/Bahadir10/flutter-packages/tree/main/packages/voip_call_engine/voip_call_engine_windows
+issue_tracker: https://github.com/Bahadir10/flutter-packages/issues
+resolution: workspace
+
+environment:
+  sdk: ^3.6.0
+  flutter: ">=3.24.0"
+
+flutter:
+  plugin:
+    implements: voip_call_engine
+    platforms:
+      windows:
+        pluginClass: VoipCallEngineWindowsPluginCApi
+        dartPluginClass: VoipCallEngineWindows
+
+dependencies:
+  flutter:
+    sdk: flutter
+  voip_call_engine_platform_interface: ^0.1.0
+
+dev_dependencies:
+  flutter_lints: ^5.0.0
+  flutter_test:
+    sdk: flutter

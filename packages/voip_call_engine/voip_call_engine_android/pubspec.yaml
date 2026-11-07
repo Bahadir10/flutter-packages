@@ -1,0 +1,29 @@
+name: voip_call_engine_android
+description: Android implementation of the voip_call_engine plugin using Self-Managed ConnectionService, AudioManager communication device routing, and cold-start event buffering.
+version: 0.1.0
+repository: https://github.com/Bahadir10/flutter-packages/tree/main/packages/voip_call_engine/voip_call_engine_android
+issue_tracker: https://github.com/Bahadir10/flutter-packages/issues
+resolution: workspace
+
+environment:
+  sdk: ^3.6.0
+  flutter: ">=3.24.0"
+
+flutter:
+  plugin:
+    implements: voip_call_engine
+    platforms:
+      android:
+        package: dev.flutter.telecom.voip_call_engine_android
+        pluginClass: VoipCallEngineAndroidPlugin
+        dartPluginClass: VoipCallEngineAndroid
+
+dependencies:
+  flutter:
+    sdk: flutter
+  voip_call_engine_platform_interface: ^0.1.0
+
+dev_dependencies:
+  flutter_lints: ^5.0.0
+  flutter_test:
+    sdk: flutter

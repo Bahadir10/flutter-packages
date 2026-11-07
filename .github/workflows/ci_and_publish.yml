@@ -1,0 +1,43 @@
+name: CI & pub.dev Publish
+
+on:
+  push:
+    branches: [main]
+    tags:
+      - '*-v*.*.*'
+  pull_request:
+    branches: [main]
+
+jobs:
+  test-flutter-and-go:
+    name: Verify Flutter Packages & Go Harness
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Go
+        uses: actions/setup-go@v5
+        with:
+          go-version: '1.23'
+
+      - name: Set up Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          channel: 'stable'
+
+      - name: Run Go Unit, Goertzel DSP & Chaos Stress Tests
+        working-directory: tools/go_voip_harness
+        run: go test -v -race ./...
+
+      - name: Install Flutter Workspace Dependencies
+        run: flutter pub get
+
+      - name: Run Dart Static Analyzer
+        run: dart analyze
+
+      - name: Run Flutter Unit, 10k Chaos/Fuzz, Widget & Zero-Touch Go E2E Tests
+        run: |
+          flutter test packages/voip_call_engine/voip_call_engine_platform_interface \
+                       packages/voip_call_engine/voip_call_engine \
+                       packages/voip_call_engine/voip_call_engine/example \
+                       examples/voip_showcase_app

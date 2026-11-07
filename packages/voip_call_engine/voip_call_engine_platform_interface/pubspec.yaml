@@ -1,0 +1,21 @@
+name: voip_call_engine_platform_interface
+description: A common platform interface for the voip_call_engine federated plugin, including the deterministic call state machine and Pigeon wire contracts.
+version: 0.1.0
+repository: https://github.com/Bahadir10/flutter-packages/tree/main/packages/voip_call_engine/voip_call_engine_platform_interface
+issue_tracker: https://github.com/Bahadir10/flutter-packages/issues
+resolution: workspace
+
+environment:
+  sdk: ^3.6.0
+  flutter: ">=3.24.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  meta: ^1.11.0
+  plugin_platform_interface: ^2.1.8
+
+dev_dependencies:
+  flutter_lints: ^5.0.0
+  flutter_test:
+    sdk: flutter

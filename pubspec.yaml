@@ -1,0 +1,17 @@
+name: flutter_telecom_monorepo
+description: Production-grade Flutter Telecom, VoIP Call Lifecycle, Audio Routing, and eSIM packages monorepo.
+publish_to: none
+
+environment:
+  sdk: ^3.6.0
+
+workspace:
+  - packages/voip_call_engine/voip_call_engine_platform_interface
+  - packages/voip_call_engine/voip_call_engine_ios
+  - packages/voip_call_engine/voip_call_engine_android
+  - packages/voip_call_engine/voip_call_engine_windows
+  - packages/voip_call_engine/voip_call_engine_macos
+  - packages/voip_call_engine/voip_call_engine_web
+  - packages/voip_call_engine/voip_call_engine
+  - packages/voip_call_engine/voip_call_engine/example
+  - examples/voip_showcase_app

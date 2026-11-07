@@ -1,0 +1,30 @@
+name: voip_call_engine_web
+description: Web implementation of the voip_call_engine plugin supporting browser audio sink routing and web call notifications.
+version: 0.1.0
+repository: https://github.com/Bahadir10/flutter-packages/tree/main/packages/voip_call_engine/voip_call_engine_web
+issue_tracker: https://github.com/Bahadir10/flutter-packages/issues
+resolution: workspace
+
+environment:
+  sdk: ^3.6.0
+  flutter: ">=3.24.0"
+
+flutter:
+  plugin:
+    implements: voip_call_engine
+    platforms:
+      web:
+        pluginClass: VoipCallEngineWeb
+        fileName: voip_call_engine_web.dart
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_web_plugins:
+    sdk: flutter
+  voip_call_engine_platform_interface: ^0.1.0
+
+dev_dependencies:
+  flutter_lints: ^5.0.0
+  flutter_test:
+    sdk: flutter
